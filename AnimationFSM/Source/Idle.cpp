@@ -1,6 +1,6 @@
-#include <Idle.h>
-#include <Jumping.h>
-#include <Climbing.h>
+#include <Headers\Idle.h>
+#include <Headers\Jumping.h>
+#include <Headers\Climbing.h>
 
 #include <string>
 

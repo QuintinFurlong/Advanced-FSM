@@ -1,9 +1,9 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 
-#include <Input.h>
-#include <Animation.h>
-#include <AnimatedSprite.h>
+#include <Headers\Input.h>
+#include <Headers\Animation.h>
+#include <Headers\AnimatedSprite.h>
 
 class Player
 {

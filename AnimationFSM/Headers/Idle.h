@@ -1,7 +1,7 @@
 #ifndef IDLE_H
 #define IDLE_H
 
-#include <State.h>
+#include <Headers\State.h>
 
 class Idle : public State
 {

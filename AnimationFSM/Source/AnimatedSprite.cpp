@@ -1,4 +1,4 @@
-#include <AnimatedSprite.h>
+#include <Headers\AnimatedSprite.h>
 
 AnimatedSprite::AnimatedSprite() 
 {

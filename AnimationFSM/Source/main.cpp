@@ -1,9 +1,9 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
-#include <AnimatedSprite.h>
-#include <Player.h>
-#include <Input.h>
-#include <Debug.h>
+#include <Headers\AnimatedSprite.h>
+#include <Headers\Player.h>
+#include <Headers\Input.h>
+#include <Headers\Debug.h>
 
 using namespace std;
 

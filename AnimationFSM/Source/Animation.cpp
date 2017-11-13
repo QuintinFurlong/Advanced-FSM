@@ -1,5 +1,5 @@
-#include <Animation.h>
-#include <Idle.h>
+#include <Headers\Animation.h>
+#include <Headers\Idle.h>
 
 Animation::Animation()
 {

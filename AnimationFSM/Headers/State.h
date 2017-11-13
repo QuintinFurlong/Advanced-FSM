@@ -4,9 +4,9 @@
 #include <iostream>
 #include <typeinfo>
 
-#include <Input.h>
-#include <Animation.h>
-#include <Debug.h>
+#include <Headers\Input.h>
+#include <Headers\Animation.h>
+#include <Headers\Debug.h>
 
 class State
 {

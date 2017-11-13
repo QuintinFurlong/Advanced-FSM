@@ -1,7 +1,7 @@
 #include <iostream>
-#include <Player.h>
-#include <Idle.h>
-#include <Debug.h>
+#include <Headers\Player.h>
+#include <Headers\Idle.h>
+#include <Headers\Debug.h>
 
 Player::Player()
 {
