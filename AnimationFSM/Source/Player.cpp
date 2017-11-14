@@ -51,8 +51,8 @@ void Player::handleInput(Input in)
 	}
 }
 
-void Player::update()
+void Player::update(int t_numOfAnimes)
 {
 	//std::cout << "Handle Update" << std::endl;
-	m_animated_sprite.update();
+	m_animated_sprite.update(t_numOfAnimes);
 }

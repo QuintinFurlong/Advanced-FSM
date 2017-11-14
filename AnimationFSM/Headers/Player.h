@@ -17,7 +17,7 @@ public:
 	~Player();
 	AnimatedSprite& getAnimatedSprite();
 	void handleInput(Input);
-	void update();
+	void update(int t_numOfAnimes);
 };
 
 #endif // !PLAYER_H

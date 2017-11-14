@@ -37,14 +37,19 @@ const int AnimatedSprite::getCurrentFrame() {
 	return m_current_frame;
 }
 
-void AnimatedSprite::update(){
+void AnimatedSprite::update(int t_numOfAnimes){
+	if (m_current_frame < 6 * t_numOfAnimes || m_current_frame > (6 * t_numOfAnimes) + 6)
+	{
+		m_current_frame = 6 * t_numOfAnimes;
+	}
+
 	if (m_clock.getElapsedTime() > m_time) {
-		if (m_frames.size() > m_current_frame + 1)
+		if (6 * (t_numOfAnimes + 1) > m_current_frame + 1)
 		{
 			m_current_frame++;
 		}
 		else {
-			m_current_frame = 0;
+			m_current_frame = 6 * t_numOfAnimes;
 		}
 		m_clock.restart();
 	}

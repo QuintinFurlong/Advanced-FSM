@@ -18,7 +18,6 @@ int main()
 		DEBUG_MSG("Failed to load file");
 		return EXIT_FAILURE;
 	}
-
 	// Setup Players Default Animated Sprite
 	AnimatedSprite animated_sprite(texture);
 	animated_sprite.addFrame(sf::IntRect(3, 3, 84, 84));
@@ -28,6 +27,19 @@ int main()
 	animated_sprite.addFrame(sf::IntRect(343, 3, 84, 84));
 	animated_sprite.addFrame(sf::IntRect(428, 3, 84, 84));
 
+	animated_sprite.addFrame(sf::IntRect(3, 3 + 84, 84, 84));
+	animated_sprite.addFrame(sf::IntRect(88, 3 + 84, 84, 84));
+	animated_sprite.addFrame(sf::IntRect(173, 3 + 84, 84, 84));
+	animated_sprite.addFrame(sf::IntRect(258, 3 + 84, 84, 84));
+	animated_sprite.addFrame(sf::IntRect(343, 3 + 84, 84, 84));
+	animated_sprite.addFrame(sf::IntRect(428, 3 + 84, 84, 84));
+
+	animated_sprite.addFrame(sf::IntRect(3, 3 + 84 * 2, 84, 84));
+	animated_sprite.addFrame(sf::IntRect(88, 3 + 84 * 2, 84, 84));
+	animated_sprite.addFrame(sf::IntRect(173, 3 + 84 * 2, 84, 84));
+	animated_sprite.addFrame(sf::IntRect(258, 3 + 84 * 2, 84, 84));
+	animated_sprite.addFrame(sf::IntRect(343, 3 + 84 * 2, 84, 84));
+	animated_sprite.addFrame(sf::IntRect(428, 3 + 84 * 2, 84, 84));
 	// Setup the Player
 	Player player(animated_sprite);
 	Input input;
@@ -39,7 +51,6 @@ int main()
 		sf::Event event;
 		while (window.pollEvent(event))
 		{
-			std::cout << "qwerty" << std::endl;
 			switch (event.type)
 			{
 			case sf::Event::Closed:
@@ -55,7 +66,7 @@ int main()
 				{
 					input.setCurrent(Input::Action::CLIMB);
 				}
-				else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up) && input.getCurrent() != Input::Action::RIGHT)
+				else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right) && input.getCurrent() != Input::Action::RIGHT)
 				{
 					input.setCurrent(Input::Action::RIGHT);
 				}
@@ -65,12 +76,9 @@ int main()
 				break;
 			}
 		}
-
-		// Handle input to Player
 		player.handleInput(input);
+		player.update(input.getCurrent());
 
-		// Update the Player
-		player.update();
 
 		// Clear screen
 		window.clear();

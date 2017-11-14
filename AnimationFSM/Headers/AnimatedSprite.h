@@ -22,7 +22,7 @@ public:
 	const IntRect& getFrame(int);
 	void addFrame(IntRect&);
 	const int getCurrentFrame();
-	void update();
+	void update(int t_numOfAnimes);
 	
 private:
 	Clock m_clock;
