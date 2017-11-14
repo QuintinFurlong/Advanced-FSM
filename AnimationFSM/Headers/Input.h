@@ -9,8 +9,8 @@ public:
 	enum Action
 	{
 		IDLE,
-		UP,
-		LEFT,
+		JUMP,
+		CLIMB,
 		RIGHT
 	};
 

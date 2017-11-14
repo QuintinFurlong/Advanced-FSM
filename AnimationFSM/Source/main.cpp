@@ -39,6 +39,7 @@ int main()
 		sf::Event event;
 		while (window.pollEvent(event))
 		{
+			std::cout << "qwerty" << std::endl;
 			switch (event.type)
 			{
 			case sf::Event::Closed:
@@ -46,17 +47,17 @@ int main()
 				window.close();
 				break;
 			case sf::Event::KeyPressed:
-				if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+				if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down) && input.getCurrent() != Input::Action::JUMP)
 				{
-					input.setCurrent(Input::Action::LEFT);
+					input.setCurrent(Input::Action::JUMP);
 				}
-				else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+				else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up) && input.getCurrent() != Input::Action::CLIMB)
+				{
+					input.setCurrent(Input::Action::CLIMB);
+				}
+				else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up) && input.getCurrent() != Input::Action::RIGHT)
 				{
 					input.setCurrent(Input::Action::RIGHT);
-				}
-				else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
-				{
-					input.setCurrent(Input::Action::UP);
 				}
 				break;
 			default:
