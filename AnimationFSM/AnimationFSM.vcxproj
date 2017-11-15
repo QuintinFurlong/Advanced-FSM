@@ -22,21 +22,27 @@
     <ClCompile Include="Source\AnimatedSprite.cpp" />
     <ClCompile Include="Source\Animation.cpp" />
     <ClCompile Include="Source\Climbing.cpp" />
+    <ClCompile Include="Source\Hammering.cpp" />
     <ClCompile Include="Source\Idle.cpp" />
     <ClCompile Include="Source\Input.cpp" />
     <ClCompile Include="Source\Jumping.cpp" />
     <ClCompile Include="Source\main.cpp" />
     <ClCompile Include="Source\Player.cpp" />
+    <ClCompile Include="Source\Shoveling.cpp" />
+    <ClCompile Include="Source\Swording.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Headers\AnimatedSprite.h" />
     <ClInclude Include="Headers\Animation.h" />
     <ClInclude Include="Headers\Climbing.h" />
+    <ClInclude Include="Headers\Hammering.h" />
     <ClInclude Include="Headers\Idle.h" />
     <ClInclude Include="Headers\Input.h" />
     <ClInclude Include="Headers\Jumping.h" />
     <ClInclude Include="Headers\Player.h" />
+    <ClInclude Include="Headers\Shoveling.h" />
     <ClInclude Include="Headers\State.h" />
+    <ClInclude Include="Headers\Swording.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="assets\grid.png" />

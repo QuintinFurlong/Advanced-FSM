@@ -11,7 +11,17 @@ int main()
 {
 	// Create the main window
 	sf::RenderWindow window(sf::VideoMode(800, 600), "SFML window");
-
+	sf::Font font;
+	if (!font.loadFromFile("assets\\ariblk.ttf")) {
+		DEBUG_MSG("Failed to load file");
+		return EXIT_FAILURE;
+	}
+	sf::Text mess;
+	mess.setFont(font);
+	mess.setPosition(100,100);
+	mess.setCharacterSize(20);
+	mess.setFillColor(sf::Color::Red);
+	mess.setString("UP TO CLIMB\nDOWN TO JUMP\nLEFT TO SHOVEL\nRIGHT TO HAMMER\nDELETE TO SWORD");
 	// Load a sprite to display
 	sf::Texture texture;
 	if (!texture.loadFromFile("assets\\grid.png")) {
@@ -20,27 +30,13 @@ int main()
 	}
 	// Setup Players Default Animated Sprite
 	AnimatedSprite animated_sprite(texture);
-	animated_sprite.addFrame(sf::IntRect(3, 3, 84, 84));
-	animated_sprite.addFrame(sf::IntRect(88, 3, 84, 84));
-	animated_sprite.addFrame(sf::IntRect(173, 3, 84, 84));
-	animated_sprite.addFrame(sf::IntRect(258, 3, 84, 84));
-	animated_sprite.addFrame(sf::IntRect(343, 3, 84, 84));
-	animated_sprite.addFrame(sf::IntRect(428, 3, 84, 84));
-
-	animated_sprite.addFrame(sf::IntRect(3, 3 + 84, 84, 84));
-	animated_sprite.addFrame(sf::IntRect(88, 3 + 84, 84, 84));
-	animated_sprite.addFrame(sf::IntRect(173, 3 + 84, 84, 84));
-	animated_sprite.addFrame(sf::IntRect(258, 3 + 84, 84, 84));
-	animated_sprite.addFrame(sf::IntRect(343, 3 + 84, 84, 84));
-	animated_sprite.addFrame(sf::IntRect(428, 3 + 84, 84, 84));
-
-	animated_sprite.addFrame(sf::IntRect(3, 3 + 84 * 2, 84, 84));
-	animated_sprite.addFrame(sf::IntRect(88, 3 + 84 * 2, 84, 84));
-	animated_sprite.addFrame(sf::IntRect(173, 3 + 84 * 2, 84, 84));
-	animated_sprite.addFrame(sf::IntRect(258, 3 + 84 * 2, 84, 84));
-	animated_sprite.addFrame(sf::IntRect(343, 3 + 84 * 2, 84, 84));
-	animated_sprite.addFrame(sf::IntRect(428, 3 + 84 * 2, 84, 84));
-	// Setup the Player
+	for (short lines = 0; lines < 6; lines++)
+	{
+		for (short frame = 0; frame < 6; frame++)
+		{
+			animated_sprite.addFrame(sf::IntRect(3 + (85 * frame), 3 + (84 * lines), 84, 84));
+		}
+	}
 	Player player(animated_sprite);
 	Input input;
 	
@@ -66,9 +62,17 @@ int main()
 				{
 					input.setCurrent(Input::Action::CLIMB);
 				}
-				else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right) && input.getCurrent() != Input::Action::RIGHT)
+				else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left) && input.getCurrent() != Input::Action::SHOVEL)
 				{
-					input.setCurrent(Input::Action::RIGHT);
+					input.setCurrent(Input::Action::SHOVEL);
+				}
+				else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right) && input.getCurrent() != Input::Action::HAMMER)
+				{
+					input.setCurrent(Input::Action::HAMMER);
+				}
+				else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Delete) && input.getCurrent() != Input::Action::SWORD)
+				{
+					input.setCurrent(Input::Action::SWORD);
 				}
 				break;
 			default:
@@ -85,6 +89,7 @@ int main()
 
 		// Draw the Players Current Animated Sprite
 		window.draw(player.getAnimatedSprite());
+		window.draw(mess);
 
 		// Update the window
 		window.display();

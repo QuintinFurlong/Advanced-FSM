@@ -11,7 +11,9 @@ public:
 		IDLE,
 		CLIMB,
 		JUMP,
-		RIGHT
+		SHOVEL,
+		HAMMER,
+		SWORD
 	};
 
 	void setCurrent(Action);

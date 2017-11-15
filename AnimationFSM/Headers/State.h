@@ -27,6 +27,18 @@ public:
 	{
 		DEBUG_MSG("State::Climbing");
 	}
+	virtual void shoveling(Animation* a)
+	{
+		DEBUG_MSG("State::Shoveling");
+	}
+	virtual void hammering(Animation* a)
+	{
+		DEBUG_MSG("State::Hammering");
+	}
+	virtual void swording(Animation* a)
+	{
+		DEBUG_MSG("State::Swording");
+	}
 };
 
 #endif // ! ANIMATION_H
